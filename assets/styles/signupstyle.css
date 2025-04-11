@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color:#f2edf5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+.heading h1{
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1px;
+    text-align: center;
+
+}
+.heading p{
+    margin-top: 0px;
+    text-align: center; 
+}
+
+.heading span
+{
+    color: #6E51B0;
+}
+
+
+.sign_up{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding:10px 25px;
+}
+
+.sign_up h2
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sign_up label { 
+    display: block;
+    margin-bottom: 0 px; 
+    font-weight: bold;
+}
+
+.sign_up input {
+    width: 95%; 
+    padding: 10px; 
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+
+.signup_button {
+    width: 100%;
+    background-color: #6E51B0;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;;
+}
+
+.signup_button:hover {
+    background: #9174d6;
+}
+
+.password_container {
+    display: flex;
+    gap: 20px; 
+    width:97%;
+}
+
+.input_group {
+    display: flex;
+    flex-direction: column; 
+    flex: 1; 
+}
+.login_page
+{   
+    /* padding-bottom: 5px; */
+    /* margin-bottom: 10px; */
+    text-align: center;
+    padding-top: 0px;
+}

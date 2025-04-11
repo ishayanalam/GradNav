@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 2px solid #eee;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 24px;
+  color: #5e2b97;
+  margin-left: 5px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: black;
+}
+
+nav .active {
+  color: #5e2b97;
+  border-bottom: 2px solid #5e2b97;
+}
+
+.button {
+  padding: 8px 20px;
+  background-color: #5e2b97;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+.recommendation-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recommendation-box h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.recommendation {
+  background-color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.recommendation strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.counseling-section {
+  margin-top: 50px;
+  padding: 40px 20px;
+  background-color: #f3f1fc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.counseling-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.highlight {
+  color: #5e2b97;
+}
+
+.click-button {
+  background-color: #5e2b97;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+footer {
+  background-color: #5e2b97;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}

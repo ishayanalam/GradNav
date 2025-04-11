@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2edf5;
+    height: 100%;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    border-bottom: 2px solid #ddd;
+    
+
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #6a36ab;
+}
+
+.logo .icon {
+    font-size: 24px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+nav a.active {
+    color: #6a36ab;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #8254c8;
+    font-size: 12px;
+    color: white;
+    border: 1px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 15px;
+}
+
+.container {
+    background-color: #eee6fc;
+    padding: 30px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 15px 0;
+    font-size: 16px;
+}
+
+.question label {
+    flex: 2;
+    text-align: left;
+}
+
+.question input {
+    margin-right: 5px;
+}
+
+.question span {
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+
+.buttons {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.back-btn,
+.next-btn {
+    background-color: #8254c8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px;
+}
+
+
+footer {
+
+   margin-top: 38px;
+   display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: #6a36ab;
+
+}
+
+.footer-links {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    
+}
+footer p
+{
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+
