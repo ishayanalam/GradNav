@@ -80,27 +80,50 @@ form {
     align-items: center;
 }
 
-.question {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
+.question-card {
+    background-color: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin: 15px 0;
-    font-size: 16px;
-}
-
-.question label {
-    flex: 2;
+    width: 90%;
     text-align: left;
+    transition: transform 0.2s ease;
 }
 
-.question input {
-    margin-right: 5px;
+.question-card:hover {
+    transform: translateY(-3px);
 }
 
-.question span {
-    margin-right: 15px;
+.question-card label {
+    font-weight: 600;
+    font-size: 17px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.options {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
     font-size: 15px;
+    cursor: pointer;
+    color: #555;
 }
+
+.options input[type="radio"] {
+    accent-color: #6a36ab;
+    transform: scale(1.2);
+}
+
 
 
 .buttons {
