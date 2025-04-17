@@ -50,7 +50,10 @@ nav a.active {
   cursor: pointer;
   text-decoration: none;
 }
-
+a {
+  text-decoration: none;
+  color:white;
+}
 /* Main content */
 main {
   display: flex;
@@ -65,6 +68,7 @@ main {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+
 }
 
 .rating-card h2 {
@@ -79,8 +83,18 @@ main {
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
+  border: 2px solid transparent; /* Initial border to make sure the hover works */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, border 0.3s ease, background-color 0.3s ease;
 }
+
+.question:hover {
+  transform: translateY(-3px);
+  border-color: #8254c8; /* Purple border on hover */
+  background-color: #f8f3fc; /* Light purple background on hover */
+  
+}
+
 
 .question label {
   display: block;
@@ -107,27 +121,34 @@ input[type="radio"] {
   accent-color: #6a36ab;
 }
 
-/* Buttons */
+/* Button Container */
 .buttons {
   margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Unified Nav Button Style */
+.nav-btn {
+  display: inline-block;
+  background-color: #8254c8;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.nav-btn {
+.nav-btn:hover {
   background-color: #6a36ab;
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 0 10px;
+  transform: translateY(-2px);
 }
 
-.nav-btn:hover {
-  background-color: #532d92;
-}
 
 /* Footer */
 footer {

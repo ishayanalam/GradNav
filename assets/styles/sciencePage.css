@@ -85,15 +85,18 @@ form {
     background-color: #fff;
     padding: 20px 25px;
     border-radius: 12px;
+    border: 2px solid transparent; /* Initial border to make sure the hover works */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin: 15px 0;
     width: 90%;
     text-align: left;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, border 0.3s ease, background-color 0.3s ease;
 }
 
 .question-card:hover {
     transform: translateY(-3px);
+    border-color: #8254c8; /* Purple border on hover */
+    background-color: #f8f3fc; /* Light purple background on hover */
 }
 
 .question-card label {
@@ -144,33 +147,53 @@ form {
     margin: 10px;
 }
 
-
-footer {
-
-   margin-top: 38px;
-   display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    background-color: #6a36ab;
-
+a {
+  text-decoration: none;
+  color:white;
 }
-
-.footer-links {
-    margin-bottom: 10px;
-    text-align: left;
+footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 25px;
+  background-color: #6a36ab;
+  color: white;
 }
 
 .footer-links a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
 }
-footer p
-{
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
+
+footer p {
+  margin: 0;
+}
+/* Button Container */
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Unified Nav Button Style */
+.nav-btn {
+  display: inline-block;
+  background-color: #8254c8;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.nav-btn:hover {
+  background-color: #6a36ab;
+  transform: translateY(-2px);
 }
 
