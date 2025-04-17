@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0eef7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #6a36ab;
+}
+
+.brand {
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+nav a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+nav a.active {
+  color: #6a36ab;
+  font-weight: bold;
+}
+
+.button {
+  background-color: #8254c8;
+  font-size: 14px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 25px;
+  padding: 30px 25px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+  margin-bottom: 20px; /* Ensure there is spacing between cards */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #ebd9fd; /* light lavender purple */
+}
+
+
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 30px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.role {
+  color: #a3b2b8;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.name {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #222;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 10px 0 20px;
+}
+
+.socials i {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.socials i:hover {
+  color: #6a36ab; /* LinkedIn blue for hover */
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 40px;
+  background-color: #6a36ab;
+  color: white;
+}
+
+.footer-links a {
+  margin: 0 20px;
+  color: white;
+  text-decoration: none;
+}
+
+footer p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+}
+/* About Us Section */
+.about-us {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 1000px;
+}
+
+.about-us h2 {
+  font-size: 2rem;
+  color: #6a36ab;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.about-us p {
+  font-size: 1rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
