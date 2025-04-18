@@ -11,7 +11,14 @@ const signup = (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { name, email, institute, education_level, password } = req.body;
+  const {
+    name,
+    email,
+    institute,
+    education_level,
+    password,
+    is_admin = false,
+  } = req.body;
 
   db.query(
     "SELECT * FROM user WHERE LOWER(email) = LOWER(?)",
@@ -27,8 +34,8 @@ const signup = (req, res) => {
         if (err) return res.status(500).json({ message: err });
 
         db.query(
-          "INSERT INTO user (name, email, institute, education_level, password) VALUES (?, ?, ?, ?, ?)",
-          [name, email, institute, education_level, hash],
+          "INSERT INTO user (name, email, institute, education_level, password,is_admin) VALUES (?, ?, ?, ?, ?,?)",
+          [name, email, institute, education_level, hash, is_admin],
           (err, result) => {
             if (err) return res.status(500).json({ message: err });
 
@@ -150,10 +157,37 @@ const getCounsellingUserInfo = (req, res) => {
   }
 };
 
+const createCounselingRequest = (req, res) => {
+  // Check for validation errors
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  // Extract values from the request body
+  const { name, email, topic, phone, counseling_date, counseling_time } =
+    req.body;
+
+  // Insert into the database
+  db.query(
+    "INSERT INTO counseling (name, email, topic, phone, counseling_date, counseling_time) VALUES (?, ?, ?, ?, ?, ?)",
+    [name, email, topic, phone, counseling_date, counseling_time],
+    (err, result) => {
+      if (err) {
+        return res.status(500).json({ message: err.message });
+      }
+
+      return res.status(201).json({
+        message: "Counseling request created successfully!",
+      });
+    }
+  );
+};
 
 module.exports = {
   signup,
   login,
   getUser,
-  getCounsellingUserInfo
+  getCounsellingUserInfo,
+  createCounselingRequest,
 };
