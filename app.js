@@ -11,7 +11,6 @@ require("./db/database"); // DB connection
 app.use(cors());
 app.use(express.json()); // Parses incoming JSON
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use("/api", userRouter);
 
 // Global error handler
