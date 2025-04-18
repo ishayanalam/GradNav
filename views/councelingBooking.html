@@ -1,93 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GradGuide - Counseling Booking</title>
+    <link rel="stylesheet" href="../assets/styles/councelingBooking.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GradGuide - Counseling Booking</title>
-  <link rel="stylesheet" href="../assets/styles/councelingBooking.css" />
-</head>
-
-<body>
-
-  <header>
-    <div class="logo">
-      <span class="icon">🎓</span><span class="brand">GradNav</span>
-    </div>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="#">Services</a>
-      <a href="about_us.html">About us</a>
-    </nav>
-    <a href="login.html" class="button">Login</a>
-  </header>
-
-  <main>
-    <div class="counceling_box">
-      <div class="message">
-        <h1>Book your free online counselling session</h1>
-        <p>Learn from our experts</p>
+  <body>
+    <header>
+      <div class="logo">
+        <span class="icon">🎓</span><span class="brand">GradNav</span>
       </div>
-      <form class="counseling-form">
-        <div class="form_row">
-          <label>
-            <span>Name:</span>
-            <input type="text" id="name" placeholder="Your name will appear here" readonly />
-          </label>
-        </div>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="#">Services</a>
+        <a href="about_us.html">About us</a>
+      </nav>
+      <a href="login.html" class="button">Login</a>
+    </header>
 
-        <div class="form_row">
-          <label>
-            <span>Email:</span>
-            <input type="email" id="email" placeholder="Your email will appear here" readonly />
-          </label>
+    <main>
+      <div class="counceling_box">
+        <div class="message">
+          <h1>Book your free online counselling session</h1>
+          <p>Learn from our experts</p>
         </div>
+        <form class="counseling-form">
+          <div class="counceling_form">
+            <div class="form_row">
+              <label>
+                <span>Name:</span>
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Your full name"
+                  readonly
+                />
+              </label>
+            </div>
 
-        <div class="form_row">
-          <label>
-            <span>Phone:</span>
-            <input type="text" placeholder="Enter your phone number" />
-          </label>
+            <div class="form_row">
+              <label>
+                <span>Email:</span>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Your email address"
+                  readonly
+                />
+              </label>
+            </div>
+
+            <div class="form_row">
+              <label>
+                <span>Phone:</span>
+                <input type="text" id="phone" placeholder="Your phone number" />
+              </label>
+            </div>
+
+            <div class="form_row">
+              <label>
+                <span>Counseling Topic:</span>
+                <input
+                  type="text"
+                  id="topic"
+                  placeholder="Enter your counseling topic"
+                />
+              </label>
+            </div>
+
+            <div class="form_row">
+              <label>
+                <span>Date:</span>
+                <input type="date" id="date" />
+              </label>
+            </div>
+
+            <div class="form_row">
+              <label>
+                <span>Time:</span>
+                <input type="time" id="time" />
+              </label>
+            </div>
+          </div>
+        </form>
+
+        <div class="note">
+          <p>
+            After clicking book now button, we will send an email to you
+            mentioning counselling hour and google meet link.
+          </p>
         </div>
-
-        <div class="form_row">
-          <label>
-            <span>Brief About Topic:</span>
-            <input type="text" placeholder="e.g., Career in Data Science" />
-          </label>
-        </div>
-
-        <div class="form_row">
-          <label>
-            <span>Select Date:</span>
-            <input type="date" />
-          </label>
-        </div>
-
-        <div class="form_row">
-          <label>
-            <span>Preferred Time:</span>
-            <input type="time" />
-          </label>
-        </div>
-      </form>
-
-      <div class="note">
-        <p>After clicking book now button, we will send an email to you mentioning counselling hour and google meet link.</p>
+        <button class="book_btn">Book Now</button>
       </div>
-      <button class="book_btn">Book Now</button>
-    </div>
-  </main>
+    </main>
 
-  <footer>
-    <div class="footer-links">
-      <a href="#">Contact</a>
-      <a href="#">Services</a>
-      <a href="about_us.html">About Us</a>
-    </div>
-    <p>© All rights reserved by GradNav, 2025</p>
-  </footer>
-
-</body>
-
+    <footer>
+      <div class="footer-links">
+        <a href="#">Contact</a>
+        <a href="#">Services</a>
+        <a href="about_us.html">About Us</a>
+      </div>
+      <p>© All rights reserved by GradNav, 2025</p>
+    </footer>
+  </body>
 </html>

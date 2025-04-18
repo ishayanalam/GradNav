@@ -16,3 +16,13 @@ exports.loginValidation = [
     .normalizeEmail({ gmail_remove_dots: true }),
   check("password", "Password is required").not().isEmpty(),
 ];
+
+exports.counselingRequestValidation = [
+  check("email", "Please enter a valid email")
+    .isEmail()
+    .normalizeEmail({ gmail_remove_dots: true }),
+  check("topic", "Topic is required").not().isEmpty(),
+  check("counseling_date", "Please enter a valid date (YYYY-MM-DD)").isDate(),
+  check("counseling_time", "Please enter a valid time (HH:MM:SS)").isString(),
+];
+

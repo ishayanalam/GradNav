@@ -121,8 +121,39 @@ const getUser = (req, res) => {
   );
 };
 
+const getCounsellingUserInfo = (req, res) => {
+  try {
+    const authToken = req.headers.authorization.split(" ")[1];
+    const decoded = jwt.verify(authToken, JWT_SECRET);
+
+    db.query(
+      "SELECT name, email FROM user WHERE email = ?",
+      [decoded.email],
+      (error, result) => {
+        if (error) {
+          return res.status(500).json({ message: "Database error", error });
+        }
+
+        if (result.length === 0) {
+          return res.status(404).json({ message: "User not found" });
+        }
+
+        res.status(200).json({
+          success: true,
+          data: result[0], // Only name and email
+          message: "Counselling user info fetched successfully",
+        });
+      }
+    );
+  } catch (error) {
+    res.status(401).json({ message: "Unauthorized", error: error.message });
+  }
+};
+
+
 module.exports = {
   signup,
   login,
   getUser,
+  getCounsellingUserInfo
 };

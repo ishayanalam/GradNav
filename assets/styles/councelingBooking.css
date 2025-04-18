@@ -8,7 +8,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f2edf5;
+  background-color: white;
   color: #333;
 }
 
@@ -67,17 +67,17 @@ nav a:hover {
 main {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-top: 60px;
-  padding: 20px;
+  padding: 40px 20px;
+  background-color: #f2edf5; /* Light background only in center area */
 }
 
 .counceling_box {
-  background-color: #fff;
+  background-color: #eee6fc;
   box-shadow: 0 10px 30px rgba(137, 90, 210, 0.2);
   border-radius: 16px;
-  width: 90%;
-  max-width: 720px;
+  width: 100%;
+  max-width: 900px;
   padding: 40px 30px;
   text-align: center;
   transition: all 0.3s ease-in-out;
@@ -108,7 +108,19 @@ main {
   color: #444;
 }
 
-.counceling_box input {
+/* Two-column layout */
+.counceling_form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.counceling_form .form_row {
+  margin-bottom: 15px;
+}
+
+.counceling_form .form_row input {
   width: 100%;
   padding: 14px;
   border: 2px solid #d8c7f3;
@@ -117,12 +129,20 @@ main {
   transition: border-color 0.3s ease;
 }
 
-.counceling_box input:focus {
+.counceling_form .form_row input:focus {
   outline: none;
   border-color: #6a36ab;
   background-color: #faf7ff;
 }
 
+/* Make the form responsive for mobile */
+@media (max-width: 768px) {
+  .counceling_form {
+    grid-template-columns: 1fr; /* Stack form fields on mobile */
+  }
+}
+
+/* Submit Button */
 .book_btn {
   margin-top: 20px;
   background-color: #8a5cd9;
@@ -149,7 +169,6 @@ main {
 
 /* Footer */
 footer {
-  margin-top: 50px;
   background-color: #6a36ab;
   color: white;
   display: flex;
