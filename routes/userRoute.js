@@ -9,7 +9,7 @@ const {
 
 const auth = require("../middlewares/auth");
 
-//const admin = require("../middlewares/isAdmin");
+const admin = require("../middlewares/isAdmin.js");
 
 router.post("/signup", signUpValidation, userController.signup);
 router.post("/login", loginValidation, userController.login);
@@ -29,6 +29,8 @@ router.post(
   counselingRequestValidation,
   userController.createCounselingRequest
 );
+
+router.get("/admin/counselings", auth.isAuthorized, admin.isAdmin, userController.getAllCounselingRequests);
 
 
 module.exports = router;

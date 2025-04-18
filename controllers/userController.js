@@ -184,10 +184,31 @@ const createCounselingRequest = (req, res) => {
   );
 };
 
+const getAllCounselingRequests = (req, res) => {
+  // Query to fetch all counseling requests from the database
+  db.query("SELECT * FROM counseling", (err, result) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ message: "Error retrieving counseling requests", error: err });
+    }
+
+    // Return the retrieved counseling requests
+    return res.status(200).json({
+      success: true,
+      data: result,
+      message: "Counseling requests fetched successfully",
+    });
+  });
+};
+
+console.log("all the controllers loaded");
+
 module.exports = {
   signup,
   login,
   getUser,
   getCounsellingUserInfo,
   createCounselingRequest,
+  getAllCounselingRequests,
 };
