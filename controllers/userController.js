@@ -76,7 +76,7 @@ const login = (req, res) => {
           if (bResult) {
             const token = jwt.sign(
               {
-                id: result[0]["id"],
+                email: result[0]["email"],
                 is_admin: result[0]["is_admin"],
               },
               JWT_SECRET,
@@ -102,7 +102,27 @@ const login = (req, res) => {
   );
 };
 
+const getUser = (req, res) => {
+  const authToken = req.headers.authorization.split(" ")[1];
+  const decode = jwt.verify(authToken, JWT_SECRET);
+  console.log("getUser started working");
+  db.query(
+    "SELECT * FROM user where email = ?",
+    [decode.email],
+    function (error, result, fields) {
+      if (error) throw error;
+
+      return res.status(200).send({
+        success: true,
+        data: result[0],
+        message: "Fetch Successfully!",
+      });
+    }
+  );
+};
+
 module.exports = {
   signup,
   login,
+  getUser,
 };
