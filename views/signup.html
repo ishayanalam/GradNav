@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -76,5 +76,130 @@
         </div>
       </div>
     </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/signupstyle.css" />
+    <title>GradNav - Sign Up</title>
+  </head>
+
+  <body>
+    <div class="registration">
+      <div class="heading">
+        <h1>Welcome To <span>GradNav</span></h1>
+        <p>Your path to the perfect university program starts here</p>
+      </div>
+
+      <div class="sign_up">
+        <h2>Sign Up Information</h2>
+
+        <!-- Error Message -->
+        <p id="error-msg" style="color: red; font-weight: bold"></p>
+
+        <form id="signup-form">
+          <label for="username">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          /><br />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+          /><br />
+
+          <label for="institution">Institution</label>
+          <input
+            type="text"
+            id="institute"
+            name="institute"
+            placeholder="Enter the name of your institution"
+            required
+          /><br />
+
+          <label for="level">Educational level</label>
+          <input
+            type="text"
+            id="educationLevel"
+            name="educationLevel"
+            placeholder="Enter your educational level"
+            required
+          /><br />
+
+          <div class="password_container">
+            <div class="input_group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="signup_button">Sign Up</button><br />
+        </form>
+
+        <div class="login_page">
+          Already have an account?
+          <span><a href="login.html">Login</a></span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("signup-form");
+      const errorMsg = document.getElementById("error-msg");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        console.log("ok");
+
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          institute: document.getElementById("institute").value,
+          education_level: document.getElementById("educationLevel").value,
+          password: document.getElementById("password").value,
+        };
+
+        try {
+          const response = await fetch("http://127.0.0.1:3000/api/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            // Redirect to login page if signup is successful
+            window.location.href = "login.html";
+          } else {
+            // Display error message if signup fails
+            errorMsg.textContent = data.message || "Signup failed. Try again.";
+          }
+        } catch (error) {
+          console.error("Fetch error:", error.message);
+          errorMsg.textContent = "Network error. Please try again later.";
+        }
+      });
+    </script>
   </body>
 </html>
