@@ -22,13 +22,14 @@
         <div class="login_info">
           <h2>Login Information</h2>
 
-          <form action="/login" method="POST">
-            <label for="username">Username</label>
+          <!-- Form to handle login -->
+          <form id="login-form">
+            <label for="email">Email</label>
             <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
               required
             /><br />
 
@@ -42,6 +43,9 @@
             /><br />
 
             <button type="submit" class="login_button">Login</button><br />
+
+            <!-- Error message display -->
+            <div id="error-message" style="color: red; display: none"></div>
           </form>
 
           <div class="signup_page">
@@ -79,5 +83,67 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // // JavaScript to handle form submission and display error messages
+      // const form = document.getElementById("login-form");
+      // const errorMessageDiv = document.getElementById("error-message");
+
+      // form.addEventListener("submit", async (event) => {
+      //   event.preventDefault(); // Prevent default form submission
+
+      //   const email = document.getElementById("email").value;
+      //   const password = document.getElementById("password").value;
+
+      //   const response = await fetch("http://127.0.0.1:3000/api/login", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({ email, password }),
+      //   });
+
+      //   const data = await response.json();
+
+      //   if (response.status === 200) {
+      //     // If login is successful, store the token and redirect
+      //     localStorage.setItem("authToken", data.token);
+      //     window.location.href = "index.html"; // Redirect to index.html
+      //   } else {
+      //     // Show error message in the div
+      //     errorMessageDiv.textContent = data.msg;
+      //     errorMessageDiv.style.display = "block"; // Make the error message visible
+      //   }
+      // });
+      document.querySelector("form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.querySelector("#email").value;
+        const password = document.querySelector("#password").value;
+
+        try {
+          const res = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const data = await res.json();
+
+          if (res.ok) {
+            localStorage.setItem("token", data.token); // 
+            console.log(data.token);
+            window.location.href = "index.html"; //
+          } else {
+            alert(data.message || "Login failed");
+          }
+        } catch (error) {
+          console.error(error);
+          alert("Something went wrong");
+        }
+      });
+    </script>
   </body>
 </html>
