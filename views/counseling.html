@@ -112,6 +112,25 @@
           console.log("Logout token");
           localStorage.removeItem("token");
         });
+
+      fetch("http://localhost:3000/api/counselling-info", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            document.getElementById("name").value = data.data.name;
+            document.getElementById("email").value = data.data.email;
+          } else {
+            alert("Failed to fetch user data");
+          }
+        })
+        .catch((err) => {
+          console.error("Error fetching user data:", err);
+        });
     </script>
   </body>
 </html>
