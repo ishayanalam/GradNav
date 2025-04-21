@@ -133,26 +133,27 @@
 
       <div class="card1">
         <h4>Which group did you study in high school?</h4>
-        <form>
+        <form id="groupForm">
           <label class="radio-container">
             <span>1. Science</span>
-            <input type="radio" name="group" />
+            <input type="radio" name="group" value="science" />
             <span class="custom-radio"></span>
           </label>
 
           <label class="radio-container">
             <span>2. Commerce</span>
-            <input type="radio" name="group" />
+            <input type="radio" name="group" value="commerce" />
             <span class="custom-radio"></span>
           </label>
 
           <label class="radio-container">
             <span>3. Arts</span>
-            <input type="radio" name="group" />
+            <input type="radio" name="group" value="arts" />
             <span class="custom-radio"></span>
           </label>
 
           <button type="submit">Continue</button>
+          <div id="error-message" style="color: red; margin-top: 10px"></div>
         </form>
       </div>
     </section>
@@ -228,6 +229,37 @@
         .addEventListener("click", function () {
           console.log("Logout token");
           localStorage.removeItem("token");
+        });
+
+      document
+        .getElementById("groupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const selected = document.querySelector(
+            'input[name="group"]:checked'
+          );
+          const errorMessage = document.getElementById("error-message");
+
+          if (selected) {
+            const group = selected.value;
+
+            // Clear any previous error message
+            errorMessage.textContent = "";
+
+            // Redirect based on selected group
+            if (group === "science") {
+              window.location.href = "sciencePage.html";
+            } else if (group === "commerce") {
+              window.location.href = "commercePage.html";
+            } else if (group === "arts") {
+              window.location.href = "artsPage.html";
+            }
+          } else {
+            // Show error message if no option is selected
+            errorMessage.textContent =
+              "Please select a group before continuing.";
+          }
         });
     </script>
   </body>

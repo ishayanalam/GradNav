@@ -133,9 +133,9 @@
           const data = await res.json();
 
           if (res.ok) {
-            localStorage.setItem("token", data.token); // 🟢 set token first
+            localStorage.setItem("token", data.token); // 
             console.log(data.token);
-            window.location.href = "index.html"; // ✅ then redirect
+            window.location.href = "index.html"; //
           } else {
             alert(data.message || "Login failed");
           }
