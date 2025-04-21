@@ -17,7 +17,7 @@
         <a href="#" class="active">Services</a>
         <a href="#">About us</a>
       </nav>
-      <a href="login.html" class="button">Login</a>
+      <a href="login.html" class="button" id="logout_button">Logout </a>
     </header>
 
     <main>
@@ -145,5 +145,14 @@
       </div>
       <p>© All rights reserved by GradNav, 2025</p>
     </footer>
+
+    <script>
+      document
+        .getElementById("logout_button")
+        .addEventListener("click", function () {
+          console.log("Logout token");
+          localStorage.removeItem("token");
+        });
+    </script>
   </body>
 </html>
