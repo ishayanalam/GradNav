@@ -168,5 +168,14 @@
       </div>
       <p>© All rights reserved by GradNav, 2025</p>
     </footer>
+
+    <script>
+      document
+        .getElementById("logout_button")
+        .addEventListener("click", function () {
+          console.log("Logout token");
+          localStorage.removeItem("token");
+        });
+    </script>
   </body>
 </html>
