@@ -16,16 +16,35 @@
   </head>
 
   <body>
+    <script>
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.log(token);
+        // If token is not found, redirect to login page
+        window.location.href = "login.html";
+      }
+
+      // Optionally: You can use the token to personalize the homepage
+      // e.g., fetch user data using the token from your backend
+    </script>
+
     <header>
       <div class="logo header-logo">
         <span class="icon">🎓</span><span class="brand">GradNav</span>
       </div>
       <nav>
-        <a href="home.html" class="active">Home</a>
+        <!-- <a href="home.html" class="active">Home</a>
+        <div id="auth-buttons" class"active"></div>
+
+        <a href="#">Services</a>
+        <a href="about_us.html">About us</a> -->
+        <div id="auth-buttons" class="active"></div>
+
         <a href="#">Services</a>
         <a href="about_us.html">About us</a>
       </nav>
-      <a href="login.html" class="button">Login</a>
+      <a href="login.html" class="button">Logout </a>
     </header>
 
     <section class="hero">
@@ -210,5 +229,36 @@
       </div>
       <p>© All rights reserved by GradNav, 2025</p>
     </footer>
+
+    <script>
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          window.location.reload();
+        }
+      });
+    </script>
+
+    <script>
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        // If token is not found, redirect to login page
+        window.location.href = "login.html";
+      }
+
+      const authButtons = document.getElementById("auth-buttons");
+
+      if (token) {
+        authButtons.innerHTML =
+          '<button class="button" onclick="logout()">Logout</button>';
+      } else {
+        authButtons.innerHTML = '<a href="login.html" class="button">Login</a>';
+      }
+
+      function logout() {
+        localStorage.removeItem("token");
+        window.location.href = "login.html";
+      }
+    </script>
   </body>
 </html>
