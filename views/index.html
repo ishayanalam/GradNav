@@ -239,16 +239,16 @@
     </script>
 
     <script>
-      const token = localStorage.getItem("token");
+      const userToken = localStorage.getItem("token");
 
-      if (!token) {
+      if (!userToken) {
         // If token is not found, redirect to login page
         window.location.href = "login.html";
       }
 
       const authButtons = document.getElementById("auth-buttons");
 
-      if (token) {
+      if (userToken) {
         authButtons.innerHTML =
           '<button class="button" onclick="logout()">Logout</button>';
       } else {
