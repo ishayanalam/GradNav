@@ -24,9 +24,6 @@
         // If token is not found, redirect to login page
         window.location.href = "login.html";
       }
-
-      // Optionally: You can use the token to personalize the homepage
-      // e.g., fetch user data using the token from your backend
     </script>
 
     <header>
@@ -34,11 +31,6 @@
         <span class="icon">🎓</span><span class="brand">GradNav</span>
       </div>
       <nav>
-        <!-- <a href="home.html" class="active">Home</a>
-        <div id="auth-buttons" class"active"></div>
-
-        <a href="#">Services</a>
-        <a href="about_us.html">About us</a> -->
         <div id="auth-buttons" class="active"></div>
 
         <a href="#">Services</a>
@@ -231,34 +223,6 @@
     </footer>
 
     <script>
-      window.addEventListener("pageshow", (event) => {
-        if (event.persisted) {
-          window.location.reload();
-        }
-      });
-    </script>
-
-    <script>
-      // const userToken = localStorage.getItem("token");
-
-      // if (!userToken) {
-      //   // If token is not found, redirect to login page
-      //   window.location.href = "login.html";
-      // }
-
-      // const authButtons = document.getElementById("auth-buttons");
-
-      // if (userToken) {
-      //   authButtons.innerHTML =
-      //     '<button class="button" onclick="logout()">Logout</button>';
-      // } else {
-      //   authButtons.innerHTML = '<a href="login.html" class="button">Login</a>';
-      // }
-
-      // function logout() {
-      //   localStorage.removeItem("token");
-      //   window.location.href = "login.html";
-      // }
       document
         .getElementById("logout_button")
         .addEventListener("click", function () {
