@@ -131,6 +131,46 @@
         .catch((err) => {
           console.error("Error fetching user data:", err);
         });
+
+      //send user counseling
+
+      document.querySelector(".book_btn").addEventListener("click", () => {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const topic = document.getElementById("topic").value;
+        const counseling_date = document.getElementById("date").value;
+        const counseling_time = document.getElementById("time").value;
+
+        fetch("http://localhost:3000/api/create-counseling", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            topic,
+            counseling_date,
+            counseling_time,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message) {
+              // ✅ Redirect to success page
+              window.location.href = "success.html";
+            } else {
+              alert("Something went wrong. Please try again.");
+            }
+          })
+          .catch((err) => {
+            console.error("Error submitting request:", err);
+            alert("An error occurred. Please try again later.");
+          });
+      });
     </script>
   </body>
 </html>
