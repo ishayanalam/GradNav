@@ -13,11 +13,11 @@
         <span class="icon">🎓</span><span class="brand">GradNav</span>
       </div>
       <nav>
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Services</a>
         <a href="about_us.html">About us</a>
       </nav>
-      <a href="login.html" class="button">Login</a>
+      <a href="login.html" class="button" id="logout_button">Logout </a>
     </header>
 
     <main>
@@ -104,5 +104,73 @@
       </div>
       <p>© All rights reserved by GradNav, 2025</p>
     </footer>
+
+    <script>
+      document
+        .getElementById("logout_button")
+        .addEventListener("click", function () {
+          console.log("Logout token");
+          localStorage.removeItem("token");
+        });
+
+      fetch("http://localhost:3000/api/counselling-info", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            document.getElementById("name").value = data.data.name;
+            document.getElementById("email").value = data.data.email;
+          } else {
+            alert("Failed to fetch user data");
+          }
+        })
+        .catch((err) => {
+          console.error("Error fetching user data:", err);
+        });
+
+      //send user counseling
+
+      document.querySelector(".book_btn").addEventListener("click", () => {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const topic = document.getElementById("topic").value;
+        const counseling_date = document.getElementById("date").value;
+        const counseling_time = document.getElementById("time").value;
+
+        fetch("http://localhost:3000/api/create-counseling", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            topic,
+            counseling_date,
+            counseling_time,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message) {
+              // ✅ Redirect to success page
+              window.location.href = "success.html";
+            } else {
+              alert("Something went wrong. Please try again.");
+            }
+          })
+          .catch((err) => {
+            console.error("Error submitting request:", err);
+            alert("An error occurred. Please try again later.");
+          });
+      });
+    </script>
   </body>
 </html>

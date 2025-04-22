@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GradNav Recommendation Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin-top: 10px; }
+    select, button { margin-top: 5px; }
+    .section { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Get Major Recommendations</h1>
+
+  <form id="recommendationForm">
+    <!-- STEM Selection -->
+    <div class="section">
+      <label for="stem">Which STEM group did you study?</label>
+      <select id="stem" name="stem" required>
+        <option value="">Select one</option>
+        <option value="Science">Science</option>
+        <option value="Commerce">Commerce</option>
+        <option value="Arts">Arts</option>
+      </select>
+    </div>
+
+    <!-- Subject Ratings (will be dynamically added) -->
+    <div id="subjectRatings" class="section"></div>
+
+    <!-- Strength Ratings -->
+    <div class="section">
+      <h3>Rate Your Strengths</h3>
+      <div id="strengthRatings"></div>
+    </div>
+
+    <button type="submit">Get Recommendations</button>
+  </form>
+
+  <div id="results" class="section"></div>
+
+  <script>
+    const SUBJECTS_BY_STEM = {
+      Science: ['Bangla', 'English', 'IT', 'Physics', 'Chemistry', 'Biology', 'Higher Math'],
+      Commerce: ['Bangla', 'English', 'IT', 'Accounting', 'Finance', 'Management', 'Marketing', 'Economics'],
+      Arts: ['Bangla', 'English', 'IT', 'Civic & Governance', 'Economics', 'History', 'Social Work', 'Sociology', 'Logic']
+    };
+
+    const STRENGTHS = ['Problem-solving', 'Analytical Skills', 'Memorization', 'Creativity', 'Communication', 'Technical Aptitude'];
+
+    const ratingOptions = `
+      <option value="Very Good">Very Good</option>
+      <option value="Average">Average</option>
+      <option value="Not Good">Not Good</option>
+    `;
+
+    const stemSelect = document.getElementById('stem');
+    const subjectContainer = document.getElementById('subjectRatings');
+    const strengthContainer = document.getElementById('strengthRatings');
+
+    // Populate strength ratings
+    STRENGTHS.forEach(strength => {
+      const label = document.createElement('label');
+      label.innerHTML = `${strength}: <select name="strength-${strength}">${ratingOptions}</select>`;
+      strengthContainer.appendChild(label);
+    });
+
+    // Update subject ratings based on selected STEM
+    stemSelect.addEventListener('change', () => {
+      subjectContainer.innerHTML = '<h3>Rate Your Subjects</h3>';
+      const selectedStem = stemSelect.value;
+      if (SUBJECTS_BY_STEM[selectedStem]) {
+        SUBJECTS_BY_STEM[selectedStem].forEach(subject => {
+          const label = document.createElement('label');
+          label.innerHTML = `${subject}: <select name="subject-${subject}">${ratingOptions}</select>`;
+          subjectContainer.appendChild(label);
+        });
+      }
+    });
+
+    // Handle form submit
+    document.getElementById('recommendationForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const stem = formData.get('stem');
+
+      // Gather subject ratings
+      const subjects = {};
+      formData.forEach((value, key) => {
+        if (key.startsWith('subject-')) {
+          const subject = key.replace('subject-', '');
+          subjects[subject] = value;
+        }
+      });
+
+      // Gather strength ratings
+      const strengths = {};
+      formData.forEach((value, key) => {
+        if (key.startsWith('strength-')) {
+          const strength = key.replace('strength-', '');
+          strengths[strength] = value;
+        }
+      });
+
+      // Make POST request
+      try {
+        const response = await fetch('/api/recommendations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ stem, subjects, strengths })
+        });
+
+        const data = await response.json();
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = '<h3>Recommended Majors</h3>';
+        data.recommendations.forEach(rec => {
+          resultsDiv.innerHTML += `<p><strong>${rec.name}</strong>: ${rec.score}% - ${rec.tier}</p>`;
+        });
+      } catch (error) {
+        console.error('Error fetching recommendations:', error);
+      }
+    });
+  </script>
+</body>
+</html>
