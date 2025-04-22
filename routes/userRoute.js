@@ -29,12 +29,18 @@ router.post(
   counselingRequestValidation,
   userController.createCounselingRequest
 );
-
 router.get(
   "/admin/counseling-requests",
   auth.isAuthorized,
   admin.isAdmin,
   userController.getAllCounselingRequests
+);
+
+router.get(
+  "/admin/getUserInformation",
+  auth.isAuthorized,
+  admin.isAdmin,
+  userController.getAllUserData
 );
 
 module.exports = router;
