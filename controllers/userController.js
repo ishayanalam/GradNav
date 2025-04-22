@@ -96,6 +96,7 @@ const login = (req, res) => {
               user: {
                 name: result[0]["name"],
                 email: result[0]["email"],
+                is_admin: result[0]["is_admin"],
               },
             });
           } else {
