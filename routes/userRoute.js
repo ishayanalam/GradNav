@@ -43,4 +43,11 @@ router.get(
   userController.getAllUserData
 );
 
+router.get(
+  "/admin/totalUsers",
+  auth.isAuthorized,
+  admin.isAdmin,
+  userController.getTotalUsers
+);
+
 module.exports = router;

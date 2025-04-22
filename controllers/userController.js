@@ -229,7 +229,25 @@ const getAllUserData = (req, res) => {
   );
 };
 
-  console.log("all the controllers loaded");
+const getTotalUsers = (req, res) => {
+  const query = "SELECT COUNT(*) AS total_users FROM user";
+
+  db.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        message: "Error fetching total user count",
+        error: err,
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      totalUsers: result[0].total_users,
+    });
+  });
+};
+
+console.log("all the controllers loaded");
 
 module.exports = {
   signup,
@@ -239,4 +257,5 @@ module.exports = {
   createCounselingRequest,
   getAllCounselingRequests,
   getAllUserData,
+  getTotalUsers,
 };
