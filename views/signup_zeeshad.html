@@ -17,10 +17,7 @@
       <div class="sign_up">
         <h2>Sign Up Information</h2>
 
-        <!-- Error Message -->
-        <p id="error-msg" style="color: red; font-weight: bold"></p>
-
-        <form id="signup-form">
+        <form action="/signup" method="POST">
           <label for="username">Name</label>
           <input
             type="text"
@@ -79,45 +76,63 @@
         </div>
       </div>
     </div>
-
-    <script>
-      const form = document.getElementById("signup-form");
-      const errorMsg = document.getElementById("error-msg");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        console.log("ok");
-
-        const formData = {
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          institute: document.getElementById("institute").value,
-          education_level: document.getElementById("educationLevel").value,
-          password: document.getElementById("password").value,
-        };
-
-        try {
-          const response = await fetch("http://127.0.0.1:3000/api/signup", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-          });
-
-          const data = await response.json();
-
-          if (response.ok) {
-            // Redirect to login page if signup is successful
-            window.location.href = "login.html";
-          } else {
-            errorMsg.textContent = data.message || "Signup failed. Try again.";
-          }
-        } catch (error) {
-          console.error("Fetch error:", error.message);
-          errorMsg.textContent = "Network error. Please try again later.";
-        }
-      });
-    </script>
   </body>
+
+  <script>
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const institute = document.getElementById("institute");
+    const educationLevel = document.getElementById("educationLevel");
+    const password = document.getElementById("password");
+    const signupButton = document.querySelector(".signup_button");
+
+    signupButton.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      if (
+        name.value === "" ||
+        email.value === "" ||
+        institute.value === "" ||
+        educationLevel.value === "" ||
+        password.value === ""
+      ) {
+        alert("Please fill in all fields.");
+      } else {
+        // alert("Form submitted successfully!");
+        
+        let res = fetch("http://127.0.0.1:3000/api/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Authorization": "Bearer " + localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            name: name.value,
+            email: email.value,
+            institute: institute.value,
+            education_level: educationLevel.value,
+            password: password.value,
+          }),
+        });
+        res
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Network response was not ok");
+            }
+          })
+          .then((data) => {
+            console.log("Success:", data);
+            //window.location.href = "/login.html";
+            window.location.pathname = window.location.pathname.replace("signup.html", "login.html");
+
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    });
+
+  </script>
 </html>
