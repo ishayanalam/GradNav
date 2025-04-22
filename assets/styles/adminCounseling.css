@@ -94,3 +94,95 @@ footer p {
   text-align: center;
   font-size: 14px;
 }
+
+/* Table Styles */
+#counseling-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #counseling-table th,
+  #counseling-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #counseling-table th {
+    background-color: #6a36ab;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  #counseling-table td {
+    background-color: #fff;
+    color: #444;
+    font-size: 14px;
+  }
+  
+  /* Hover Effect */
+  #counseling-table tr:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Zebra Striping */
+  #counseling-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Add some spacing between the table rows */
+  #counseling-table td,
+  #counseling-table th {
+    padding: 12px 15px;
+  }
+  
+  /* Table Header */
+  #counseling-table th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 16px 20px;
+  }
+  
+  /* Table Row */
+  #counseling-table tr td {
+    font-size: 14px;
+    padding: 12px 15px;
+    color: #444;
+    text-align: center;
+  }
+  
+  /* Responsive Design for Small Screens */
+  @media screen and (max-width: 768px) {
+    #counseling-table {
+      font-size: 12px;
+      margin: 0 10px;
+    }
+  
+    #counseling-table th,
+    #counseling-table td {
+      padding: 10px;
+    }
+  }
+  
+  /* Table Border & Shadow */
+  #counseling-table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add border to the entire table */
+  #counseling-table,
+  #counseling-table th,
+  #counseling-table td {
+    border: 1px solid #ddd;
+  }
+  
+  /* Focus effect on table rows */
+  #counseling-table tr:focus-within {
+    outline: 2px solid #6a36ab;
+  }
+  

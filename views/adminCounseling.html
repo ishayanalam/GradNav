@@ -10,8 +10,9 @@
       rel="stylesheet"
     />
   </head>
-
+  <!-- admin will be able to see the counseling request -->
   <body>
+    <!-- Header Section -->
     <header>
       <div class="logo">🎓 <span class="brand">GradNav</span></div>
       <nav>
@@ -22,8 +23,29 @@
       <a href="login_admin.html" class="button" id="logout_button">Logout</a>
     </header>
 
-    <section class="admin-counseling"></section>
+    <!-- Main Section for Counseling Requests -->
+    <section class="admin-counseling">
+      <h2>Counseling Requests</h2>
 
+      <!-- Counseling requests table -->
+      <table id="counseling-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Topic</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be populated here dynamically using JavaScript -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
       <div class="footer-links">
         <a href="#">Contact</a>
@@ -34,12 +56,104 @@
     </footer>
 
     <script>
+      // Function to format date in a more readable format
+      function formatDate(isoDate) {
+        const date = new Date(isoDate);
+
+        // Options for formatting the date
+        const options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: true, // For 12-hour time format
+        };
+
+        return date.toLocaleString("en-US", options);
+      }
+
+      // Function to fetch and display counseling requests
+      async function loadCounselingRequests() {
+        try {
+          const token = localStorage.getItem("token");
+          const res = await fetch(
+            "http://localhost:3000/api/admin/counseling-requests",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`, // Include the token for authorization
+              },
+            }
+          );
+
+          const data = await res.json();
+          console.log("Received data from server:", data); // Log the entire response to check structure
+
+          if (res.ok) {
+            if (Array.isArray(data.data)) {
+              console.log("Counseling requests:", data.data); // Log the array of counseling requests
+              const tableBody = document.querySelector(
+                "#counseling-table tbody"
+              );
+              tableBody.innerHTML = ""; // Clear existing table content
+
+              data.data.forEach((request) => {
+                console.log("Rendering request:", request); // Log each request to see what is being processed
+                // Loop through the array of requests
+                const row = document.createElement("tr");
+
+                // Create table cells for each request
+                const nameCell = document.createElement("td");
+                nameCell.textContent = request.name;
+                row.appendChild(nameCell);
+
+                const emailCell = document.createElement("td");
+                emailCell.textContent = request.email;
+                row.appendChild(emailCell);
+
+                const topicCell = document.createElement("td");
+                topicCell.textContent = request.topic;
+                row.appendChild(topicCell);
+
+                const phoneCell = document.createElement("td");
+                phoneCell.textContent = request.phone;
+                row.appendChild(phoneCell);
+
+                const dateCell = document.createElement("td");
+                dateCell.textContent = formatDate(request.counseling_date); // Format the date
+                row.appendChild(dateCell);
+
+                const timeCell = document.createElement("td");
+                timeCell.textContent = request.counseling_time;
+                row.appendChild(timeCell);
+
+                // Append the row to the table body
+                tableBody.appendChild(row);
+              });
+            } else {
+              console.error("Expected an array but got:", data);
+            }
+          } else {
+            console.error("Failed to fetch counseling requests:", data.message);
+          }
+        } catch (error) {
+          console.error("Error fetching counseling requests:", error);
+        }
+      }
+
+      // Logout functionality
       document
         .getElementById("logout_button")
         .addEventListener("click", function () {
           console.log("Logout token");
           localStorage.removeItem("token");
         });
+
+      // Call loadCounselingRequests when page loads
+      document.addEventListener("DOMContentLoaded", loadCounselingRequests);
     </script>
   </body>
 </html>
