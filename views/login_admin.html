@@ -90,6 +90,9 @@
 
         const email = document.querySelector("#email").value;
         const password = document.querySelector("#password").value;
+        const errorMessageDiv = document.querySelector("#error-message");
+        errorMessageDiv.style.display = "none";
+        errorMessageDiv.textContent = "";
 
         try {
           const res = await fetch("http://localhost:3000/api/login", {
@@ -103,15 +106,22 @@
           const data = await res.json();
 
           if (res.ok) {
-            localStorage.setItem("token", data.token); //
-            console.log(data.token);
-            window.location.href = "index.html"; //
+            localStorage.setItem("token", data.token);
+
+            if (data.user.is_admin === 1) {
+              window.location.href = "adminDashboard.html";
+            } else {
+              errorMessageDiv.textContent = "You are not an admin!";
+              errorMessageDiv.style.display = "block";
+            }
           } else {
-            alert(data.message || "Login failed");
+            errorMessageDiv.textContent =
+              data.message || "Login failed. Check Email and Password";
+            errorMessageDiv.style.display = "block";
           }
         } catch (error) {
-          //console.error(error);
-          alert("Something went wrong");
+          errorMessageDiv.textContent = "Something went wrong";
+          errorMessageDiv.style.display = "block";
         }
       });
     </script>

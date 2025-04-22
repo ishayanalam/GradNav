@@ -62,8 +62,17 @@
 
           <div class="buttons">
             <!-- <a href="" class="nav-btn">&lt; Back</a> -->
-            <a href="sciencePage.html" class="nav-btn">Next &gt;</a>
+            <!-- <a href="sciencePage.html" class="nav-btn">Next &gt;</a> -->
+            <button type="button" class="nav-btn" id="nextButton">
+              Next &gt;
+            </button>
           </div>
+          <!-- Add this inside <form> just above </form> -->
+          <p
+            id="message"
+            class="message"
+            style="color: red; margin-top: 10px"
+          ></p>
         </form>
       </div>
     </main>
@@ -84,6 +93,32 @@
           console.log("Logout token");
           localStorage.removeItem("token");
         });
+
+      document.getElementById("nextButton").addEventListener("click", () => {
+        const selectedOption = document.querySelector(
+          'input[name="stream"]:checked'
+        );
+        const messageElement = document.getElementById("message");
+
+        if (!selectedOption) {
+          messageElement.textContent =
+            "Please select a stream before continuing.";
+          return;
+        }
+
+        const group = selectedOption.value;
+
+        // Clear the message when proceeding
+        messageElement.textContent = "";
+
+        if (group === "science") {
+          window.location.href = "sciencePage.html";
+        } else if (group === "commerce") {
+          window.location.href = "commercePage.html";
+        } else if (group === "arts") {
+          window.location.href = "artsPage.html";
+        }
+      });
     </script>
   </body>
 </html>
