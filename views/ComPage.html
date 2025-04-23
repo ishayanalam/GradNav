@@ -34,20 +34,20 @@
           <h2>Rate your expertise into the subjects</h2>
 
           <div class="question-card">
-            <label>1. Physics</label>
+            <label>1. Accounting</label>
             <div class="options">
               <label>
-                <input type="radio" name="physics" value="Very Good" /><span
+                <input type="radio" name="accounting" value="Very Good" /><span
                   >Very Good</span
                 >
               </label>
               <label>
-                <input type="radio" name="physics" value="Average" /><span
+                <input type="radio" name="accounting" value="Average" /><span
                   >Average</span
                 >
               </label>
               <label>
-                <input type="radio" name="physics" value="Not Good" /><span
+                <input type="radio" name="accounting" value="Not Good" /><span
                   >Not Good</span
                 >
               </label>
@@ -55,20 +55,20 @@
           </div>
 
           <div class="question-card">
-            <label>2. Chemistry</label>
+            <label>2. Finance</label>
             <div class="options">
               <label>
-                <input type="radio" name="chemistry" value="Very Good" /><span
+                <input type="radio" name="finance" value="Very Good" /><span
                   >Very Good</span
                 >
               </label>
               <label>
-                <input type="radio" name="chemistry" value="Average" /><span
+                <input type="radio" name="finance" value="Average" /><span
                   >Average</span
                 >
               </label>
               <label>
-                <input type="radio" name="chemistry" value="Not Good" /><span
+                <input type="radio" name="finance" value="Not Good" /><span
                   >Not Good</span
                 >
               </label>
@@ -76,20 +76,20 @@
           </div>
 
           <div class="question-card">
-            <label>3. Higher Math</label>
+            <label>3. Management</label>
             <div class="options">
               <label>
-                <input type="radio" name="higherMath" value="Very Good" /><span
+                <input type="radio" name="management" value="Very Good" /><span
                   >Very Good</span
                 >
               </label>
               <label>
-                <input type="radio" name="higherMath" value="Average" /><span
+                <input type="radio" name="management" value="Average" /><span
                   >Average</span
                 >
               </label>
               <label>
-                <input type="radio" name="higherMath" value="Not Good" /><span
+                <input type="radio" name="management" value="Not Good" /><span
                   >Not Good</span
                 >
               </label>
@@ -97,20 +97,20 @@
           </div>
 
           <div class="question-card">
-            <label>4. Biology</label>
+            <label>4. Marketing</label>
             <div class="options">
               <label>
-                <input type="radio" name="biology" value="Very Good" /><span
+                <input type="radio" name="marketing" value="Very Good" /><span
                   >Very Good</span
                 >
               </label>
               <label>
-                <input type="radio" name="biology" value="Average" /><span
+                <input type="radio" name="marketing" value="Average" /><span
                   >Average</span
                 >
               </label>
               <label>
-                <input type="radio" name="biology" value="Not Good" /><span
+                <input type="radio" name="marketing" value="Not Good" /><span
                   >Not Good</span
                 >
               </label>
@@ -118,7 +118,55 @@
           </div>
 
           <div class="question-card">
-            <label>5. ICT</label>
+            <label>5. Economics</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="economics" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="economics" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="economics" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>6. Business Organization and Management</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="BusinessOrganizationManagement"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="BusinessOrganizationManagement"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="BusinessOrganizationManagement"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>7. ICT</label>
             <div class="options">
               <label>
                 <input type="radio" name="ict" value="Very Good" /><span
@@ -139,7 +187,7 @@
           </div>
 
           <div class="question-card">
-            <label>6. Bangla</label>
+            <label>8. Bangla</label>
             <div class="options">
               <label>
                 <input type="radio" name="bangla" value="Very Good" /><span
@@ -160,7 +208,7 @@
           </div>
 
           <div class="question-card">
-            <label>7. English</label>
+            <label>9. English</label>
             <div class="options">
               <label>
                 <input type="radio" name="english" value="Very Good" /><span
@@ -181,7 +229,7 @@
           </div>
 
           <div class="question-card">
-            <label>8. Math</label>
+            <label>10. Math</label>
             <div class="options">
               <label>
                 <input
@@ -542,20 +590,36 @@
 
           // Get the values from the form
           const subjects = {
-            Physics: document.querySelector('input[name="physics"]:checked')
-              ?.value,
-            Chemistry: document.querySelector('input[name="chemistry"]:checked')
-              ?.value,
-            "Higher Math": document.querySelector(
-              'input[name="higherMath"]:checked'
+            //1
+            Accounting: document.querySelector(
+              'input[name="accounting"]:checked'
             )?.value,
-            Biology: document.querySelector('input[name="biology"]:checked')
+            //2
+            Finance: document.querySelector('input[name="finance"]:checked')
               ?.value,
+            //3
+            Management: document.querySelector(
+              'input[name="management"]:checked'
+            )?.value,
+            //4
+            Marketing: document.querySelector('input[name="marketing"]:checked')
+              ?.value,
+            //5
+            Economics: document.querySelector('input[name="economics"]:checked')
+              ?.value,
+            //6
+            "Business Organization and Management": document.querySelector(
+              'input[name="BusinessOrganizationManagement"]:checked'
+            )?.value,
+            //7
             ICT: document.querySelector('input[name="ict"]:checked')?.value,
+            //8
             Bangla: document.querySelector('input[name="bangla"]:checked')
               ?.value,
+            //9
             English: document.querySelector('input[name="english"]:checked')
               ?.value,
+            //10
             Math: document.querySelector('input[name="math-optional"]:checked')
               ?.value,
           };
@@ -596,7 +660,7 @@
           };
 
           const data = {
-            stem: "Science", // You can adjust the STEM value based on the user's input or selection
+            stem: "Commerce", // You can adjust the STEM value based on the user's input or selection
             subjects: subjects,
             strengths: strengths,
           };

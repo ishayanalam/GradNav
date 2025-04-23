@@ -16,6 +16,7 @@ const MAJORS = {
       "Accounting",
       "Finance",
       "Business Organization and Management",
+      "Marketing",
     ],
     secondarySubjects: ["Management", "Economics"],
     strengths: ["Leadership", "Communication"],
