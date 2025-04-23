@@ -37,14 +37,6 @@ GradNav is a web-based platform designed to help students explore the right acad
 
 ---
 
-## 📸 Screenshots
-
-![Landing Page](./screenshots/landing.png)
-![Rating Form](./screenshots/form.png)
-![Dashboard](./screenshots/dashboard.png)
-
----
-
 ## 📌 Future Roadmap
 
 - 🏫 University Suggestions
