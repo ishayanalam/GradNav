@@ -8,145 +8,685 @@
   </head>
 
   <body>
+    <script>
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.log(token);
+        // If token is not found, redirect to login page
+        window.location.href = "login.html";
+      }
+    </script>
     <header>
-      <div class="logo">
-        <span class="icon">🎓</span><span class="brand">GradNav</span>
-      </div>
+      <div class="logo">🎓 <span class="brand">GradNav</span></div>
       <nav>
-        <a href="#">Home</a>
-        <a href="#" class="active">Services</a>
-        <a href="#">About us</a>
+        <a href="index.html">Home</a>
+        <a href="#">Services</a>
+        <a href="about_us.html" class="active">About us</a>
       </nav>
       <a href="login.html" class="button" id="logout_button">Logout </a>
     </header>
 
     <main>
-      <div class="container">
-        <h2>Rate your expertise into the subjects</h2>
-        <form>
+      <!-- Start of the single form that wraps all questions -->
+      <form id="ratingForm">
+        <div class="container">
+          <h2>Rate your expertise into the subjects</h2>
+
           <div class="question-card">
             <label>1. Accounting</label>
             <div class="options">
-              <label
-                ><input type="radio" name="accounting" value="very-good" /><span
+              <label>
+                <input type="radio" name="accounting" value="Very Good" /><span
                   >Very Good</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="accounting" value="average" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="accounting" value="Average" /><span
                   >Average</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="accounting" value="not-good" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="accounting" value="Not Good" /><span
                   >Not Good</span
-                ></label
-              >
+                >
+              </label>
             </div>
           </div>
 
           <div class="question-card">
-            <label>2. Economics</label>
+            <label>2. Finance</label>
             <div class="options">
-              <label
-                ><input type="radio" name="economics" value="very-good" /><span
+              <label>
+                <input type="radio" name="finance" value="Very Good" /><span
                   >Very Good</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="economics" value="average" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="finance" value="Average" /><span
                   >Average</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="economics" value="not-good" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="finance" value="Not Good" /><span
                   >Not Good</span
-                ></label
-              >
+                >
+              </label>
             </div>
           </div>
 
           <div class="question-card">
-            <label>3. Marketing</label>
+            <label>3. Management</label>
             <div class="options">
-              <label
-                ><input type="radio" name="marketing" value="very-good" /><span
+              <label>
+                <input type="radio" name="management" value="Very Good" /><span
                   >Very Good</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="marketing" value="average" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="management" value="Average" /><span
                   >Average</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="marketing" value="not-good" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="management" value="Not Good" /><span
                   >Not Good</span
-                ></label
-              >
+                >
+              </label>
             </div>
           </div>
 
           <div class="question-card">
-            <label>4. Management</label>
+            <label>4. Marketing</label>
             <div class="options">
-              <label
-                ><input type="radio" name="management" value="very-good" /><span
+              <label>
+                <input type="radio" name="marketing" value="Very Good" /><span
                   >Very Good</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="management" value="average" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="marketing" value="Average" /><span
                   >Average</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="management" value="not-good" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="marketing" value="Not Good" /><span
                   >Not Good</span
-                ></label
-              >
+                >
+              </label>
             </div>
           </div>
 
           <div class="question-card">
-            <label>5. Finance & Banking</label>
+            <label>5. Economics</label>
             <div class="options">
-              <label
-                ><input type="radio" name="finance" value="very-good" /><span
+              <label>
+                <input type="radio" name="economics" value="Very Good" /><span
                   >Very Good</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="finance" value="average" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="economics" value="Average" /><span
                   >Average</span
-                ></label
-              >
-              <label
-                ><input type="radio" name="finance" value="not-good" /><span
+                >
+              </label>
+              <label>
+                <input type="radio" name="economics" value="Not Good" /><span
                   >Not Good</span
-                ></label
-              >
+                >
+              </label>
             </div>
           </div>
 
-          <div class="buttons">
-            <button class="back-btn">&lt; Back</button>
-            <button class="next-btn">Next &gt;</button>
+          <div class="question-card">
+            <label>6. Business Organization and Management</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="BusinessOrganizationManagement"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="BusinessOrganizationManagement"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="BusinessOrganizationManagement"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
           </div>
-        </form>
-      </div>
+
+          <div class="question-card">
+            <label>7. ICT</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="ict" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="ict" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="ict" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>8. Bangla</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="bangla" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="bangla" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="bangla" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>9. English</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="english" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="english" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="english" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>10. Math</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="math-optional"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input type="radio" name="math-optional" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="math-optional"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <h2>Rate your Skills and Strengths</h2>
+
+          <div class="question-card">
+            <label>1. Problem Solving</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="problem_solving"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="problem_solving"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="problem_solving"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>2. Analytical Skills</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="analytical_skills"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="analytical_skills"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="analytical_skills"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>3. Memorization</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="memorization"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input type="radio" name="memorization" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="memorization" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>4. Creativity</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="creativity" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="creativity" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="creativity" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>5. Communication</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="communication"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input type="radio" name="communication" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="communication"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>6. Technical Aptitude</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="technical_aptitude"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="technical_aptitude"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="technical_aptitude"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>7. Attention to Detail</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="attention_to_detail"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="attention_to_detail"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="attention_to_detail"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>8. Leadership</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="leadership" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="leadership" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="leadership" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>9. Logical Reasoning</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="logical_reasoning"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="logical_reasoning"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="logical_reasoning"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>10. Critical Thinking</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="critical_thinking"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="critical_thinking"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="critical_thinking"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>11. Critical Analysis</label>
+            <div class="options">
+              <label>
+                <input
+                  type="radio"
+                  name="critical_analysis"
+                  value="Very Good"
+                /><span>Very Good</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="critical_analysis"
+                  value="Average"
+                /><span>Average</span>
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="critical_analysis"
+                  value="Not Good"
+                /><span>Not Good</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>12. Teamwork</label>
+            <div class="options">
+              <label>
+                <input type="radio" name="teamwork" value="Very Good" /><span
+                  >Very Good</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="teamwork" value="Average" /><span
+                  >Average</span
+                >
+              </label>
+              <label>
+                <input type="radio" name="teamwork" value="Not Good" /><span
+                  >Not Good</span
+                >
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <a href="selectStream.html" class="nav-btn">&lt; Back</a>
+          <button type="submit" class="button">Submit</button>
+        </div>
+      </form>
+      <!-- End of single form -->
     </main>
 
     <footer>
       <div class="footer-links">
         <a href="#">Contact</a>
         <a href="#">Services</a>
-        <a href="#">About</a>
+        <a href="about_us.html">About Us</a>
       </div>
       <p>© All rights reserved by GradNav, 2025</p>
     </footer>
 
     <script>
+      document
+        .getElementById("logout_button")
+        .addEventListener("click", function () {
+          console.log("Logout token");
+          localStorage.removeItem("token");
+        });
+
+      document
+        .getElementById("ratingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form from submitting the default way
+
+          // Get the values from the form
+          const subjects = {
+            //1
+            Accounting: document.querySelector(
+              'input[name="accounting"]:checked'
+            )?.value,
+            //2
+            Finance: document.querySelector('input[name="finance"]:checked')
+              ?.value,
+            //3
+            Management: document.querySelector(
+              'input[name="management"]:checked'
+            )?.value,
+            //4
+            Marketing: document.querySelector('input[name="marketing"]:checked')
+              ?.value,
+            //5
+            Economics: document.querySelector('input[name="economics"]:checked')
+              ?.value,
+            //6
+            "Business Organization and Management": document.querySelector(
+              'input[name="BusinessOrganizationManagement"]:checked'
+            )?.value,
+            //7
+            ICT: document.querySelector('input[name="ict"]:checked')?.value,
+            //8
+            Bangla: document.querySelector('input[name="bangla"]:checked')
+              ?.value,
+            //9
+            English: document.querySelector('input[name="english"]:checked')
+              ?.value,
+            //10
+            Math: document.querySelector('input[name="math-optional"]:checked')
+              ?.value,
+          };
+
+          const strengths = {
+            "Problem-solving": document.querySelector(
+              'input[name="problem_solving"]:checked'
+            )?.value,
+            "Analytical Skills": document.querySelector(
+              'input[name="analytical_skills"]:checked'
+            )?.value,
+            Creativity: document.querySelector(
+              'input[name="creativity"]:checked'
+            )?.value,
+            Communication: document.querySelector(
+              'input[name="communication"]:checked'
+            )?.value,
+            "Technical Aptitude": document.querySelector(
+              'input[name="technical_aptitude"]:checked'
+            )?.value,
+            "Attention to Detail": document.querySelector(
+              'input[name="attention_to_detail"]:checked'
+            )?.value,
+            "Critical Thinking": document.querySelector(
+              'input[name="critical_thinking"]:checked'
+            )?.value,
+            "Critical Analysis": document.querySelector(
+              'input[name="critical_analysis"]:checked'
+            )?.value,
+            Leadership: document.querySelector(
+              'input[name="leadership"]:checked'
+            )?.value,
+            "Logical Reasoning": document.querySelector(
+              'input[name="logical_reasoning"]:checked'
+            )?.value,
+            Teamwork: document.querySelector('input[name="teamwork"]:checked')
+              ?.value,
+          };
+
+          const data = {
+            stem: "Commerce", // You can adjust the STEM value based on the user's input or selection
+            subjects: subjects,
+            strengths: strengths,
+          };
+
+          // Send the data to the backend
+          fetch("http://127.0.0.1:3000/api/recommendations", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((result) => {
+              // Assuming the backend returns a result you want to show
+              // Redirect or show the result on another page
+              window.location.href =
+                "resultPage.html?data=" +
+                encodeURIComponent(JSON.stringify(result));
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("An error occurred while submitting the form.");
+            });
+        });
+
       document
         .getElementById("logout_button")
         .addEventListener("click", function () {

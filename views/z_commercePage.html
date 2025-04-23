@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GradGuide - Rating</title>
+    <link rel="stylesheet" href="../assets/styles/sciencePage.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <span class="icon">🎓</span><span class="brand">GradNav</span>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#" class="active">Services</a>
+        <a href="#">About us</a>
+      </nav>
+      <a href="login.html" class="button" id="logout_button">Logout </a>
+    </header>
+
+    <main>
+      <div class="container">
+        <h2>Rate your expertise into the subjects</h2>
+        <form>
+          <div class="question-card">
+            <label>1. Accounting</label>
+            <div class="options">
+              <label
+                ><input type="radio" name="accounting" value="very-good" /><span
+                  >Very Good</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="accounting" value="average" /><span
+                  >Average</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="accounting" value="not-good" /><span
+                  >Not Good</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>2. Economics</label>
+            <div class="options">
+              <label
+                ><input type="radio" name="economics" value="very-good" /><span
+                  >Very Good</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="economics" value="average" /><span
+                  >Average</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="economics" value="not-good" /><span
+                  >Not Good</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>3. Marketing</label>
+            <div class="options">
+              <label
+                ><input type="radio" name="marketing" value="very-good" /><span
+                  >Very Good</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="marketing" value="average" /><span
+                  >Average</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="marketing" value="not-good" /><span
+                  >Not Good</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>4. Management</label>
+            <div class="options">
+              <label
+                ><input type="radio" name="management" value="very-good" /><span
+                  >Very Good</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="management" value="average" /><span
+                  >Average</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="management" value="not-good" /><span
+                  >Not Good</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <div class="question-card">
+            <label>5. Finance & Banking</label>
+            <div class="options">
+              <label
+                ><input type="radio" name="finance" value="very-good" /><span
+                  >Very Good</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="finance" value="average" /><span
+                  >Average</span
+                ></label
+              >
+              <label
+                ><input type="radio" name="finance" value="not-good" /><span
+                  >Not Good</span
+                ></label
+              >
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button class="back-btn">&lt; Back</button>
+            <button class="next-btn">Next &gt;</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#">Contact</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+      </div>
+      <p>© All rights reserved by GradNav, 2025</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("logout_button")
+        .addEventListener("click", function () {
+          console.log("Logout token");
+          localStorage.removeItem("token");
+        });
+    </script>
+  </body>
+</html>
