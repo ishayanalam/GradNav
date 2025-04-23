@@ -62,8 +62,8 @@ main {
   background-color: #eee6fc;
   padding: 30px;
   border-radius: 12px;
-  width: 60%;
-  max-width: 800px;
+  width: 80%;
+  max-width: 10000px;
   text-align: center;
 }
 
@@ -75,13 +75,13 @@ main {
 }
 
 .recommendation {
-  background-color: white;
-  padding: 20px;
-  border-radius: 0px;
-  width: 95%;
-  margin-bottom: 15px;
   text-align: left;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  border-left: 4px solid #8254c8;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .recommendation strong {
@@ -190,4 +190,9 @@ footer p
     color: white;
     text-decoration: none;
 }
+
+
+
+
+
 

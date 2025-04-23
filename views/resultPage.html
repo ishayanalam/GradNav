@@ -84,19 +84,23 @@
           console.log("Logout token");
           localStorage.removeItem("token");
         });
-      // Get the result data passed from the previous page (as URL parameters)
+
       const urlParams = new URLSearchParams(window.location.search);
       const resultData = JSON.parse(decodeURIComponent(urlParams.get("data")));
 
-      // Assuming the result data structure looks like this:
-      // resultData = { recommendations: [{name: 'CSE', description: 'Some description'}, ...] }
+      function getFriendlyTierLabel(tier) {
+        if (tier === "Tier 1") return "⭐⭐⭐ Highly aligned with your skills and interests";
+        if (tier === "Tier 2") return "👍 Good Fit. May suit your interests with some guidance";
+        if (tier === "Tier 3") return "✅ May suit you with additional exploration";
+        return tier;
+      }
 
-      // Function to render recommendations
+      //render recommendations
       function displayRecommendations(data) {
         const recommendationsContainer = document.getElementById(
           "recommendations-container"
         );
-        recommendationsContainer.innerHTML = ""; // Clear any previous content
+        recommendationsContainer.innerHTML = ""; // Clear previous results
 
         data.recommendations.forEach((rec) => {
           const recommendationDiv = document.createElement("div");
@@ -104,18 +108,24 @@
 
           const strongElement = document.createElement("strong");
           strongElement.textContent =
-            rec.name == "Civil_Engineering"
+            rec.name === "Civil_Engineering"
               ? "Civil Engineering"
-              : rec.name == "Media_Studies"
+              : rec.name === "Media_Studies"
               ? "Media Studies"
-              : rec.name == "Social_Science"
+              : rec.name === "Social_Science"
               ? "Social Science"
               : rec.name;
           recommendationDiv.appendChild(strongElement);
 
-          const descriptionElement = document.createElement("p");
-          descriptionElement.textContent = rec.description;
-          recommendationDiv.appendChild(descriptionElement);
+        
+          const scoreElement = document.createElement("p");
+          
+
+          const tierElement = document.createElement("p");
+          tierElement.innerHTML = `<strong></strong> ${getFriendlyTierLabel(
+            rec.tier
+          )}`;
+          recommendationDiv.appendChild(tierElement);
 
           recommendationsContainer.appendChild(recommendationDiv);
         });

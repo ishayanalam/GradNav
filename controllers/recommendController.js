@@ -6,8 +6,8 @@ const MAJORS = {
     restricted: ["Commerce", "Arts"],
   },
   EEE: {
-    coreSubjects: ["Physics", "Higher Math", "Chemistry"],
-    secondarySubjects: ["ICT", "Biology"],
+    coreSubjects: ["Physics", "Higher Math", "ICT"],
+    secondarySubjects: ["Chemistry", "Biology"],
     strengths: ["Analytical Skills", "Technical Aptitude"],
     restricted: ["Commerce", "Arts"],
   },
@@ -17,9 +17,10 @@ const MAJORS = {
       "Finance",
       "Business Organization and Management",
       "Marketing",
+      "Math",
     ],
     secondarySubjects: ["Management", "Economics"],
-    strengths: ["Leadership", "Communication"],
+    strengths: ["Leadership", "Communication", "Teamwork"],
     restricted: [],
   },
 
