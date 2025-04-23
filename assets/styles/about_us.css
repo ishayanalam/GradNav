@@ -81,11 +81,11 @@ nav a.active {
 
 
 .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 30px;
+  width: 215px;
+  height: 215px;
+  border-radius: 10px;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .role {
@@ -97,14 +97,14 @@ nav a.active {
 
 .name {
   font-size: 1.2rem;
-  margin: 10px 0;
+  margin: 0px 0;
   color: #222;
 }
 
 .desc {
   font-size: 0.9rem;
   color: #666;
-  margin: 10px 0 20px;
+  margin: 0px 0 20px;
 }
 
 .socials i {
