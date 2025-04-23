@@ -1,9 +1,3 @@
-// controllers/recommendController.js
-
-// const MAJORS = {
-//   // same MAJORS object from your boss's code...
-// };
-
 const MAJORS = {
   CSE: {
     coreSubjects: ["ICT", "Higher Math", "Physics"],
@@ -128,6 +122,7 @@ const calculateScore = (major, subjects, strengths) => {
 };
 
 const getRecommendations = (req, res) => {
+  console.log(req.body);
   const { stem, subjects, strengths } = req.body;
 
   if (!stem || !subjects || !strengths) {

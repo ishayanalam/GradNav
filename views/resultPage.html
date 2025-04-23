@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GradGuide - Rating</title>
+  <link rel="stylesheet" href="../assets/styles/recommendations.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <span class="icon">🎓</span><span class="brand">GradNav</span>
+    </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="#">Services</a>
+      <a href="about_us.html">About us</a>
+    </nav>
+    <a href="login.html" class="button">Login</a>
+  </header>
+
+  <main>
+    <div class="recommendation_box">
+      <h3>Based on your strength and high school subject <br>expertise, we recommend you these</h3>
+      
+      <!-- Recommendations will be inserted here dynamically -->
+      <div id="recommendations-container"></div>
+    </div>
+  </main>
+
+  <!-- Counseling Section -->
+  <section class="counseling-section">
+    <div class="container">
+      <div class="counseling-content">
+        <img src="../assets/images/picture2.png" alt="Graduation Hat" class="hat-img" />
+        <div class="text-button">
+          <h2>
+            For any confusion, Get one-to-one
+            <span class="highlight">Counseling</span> from our experts.
+          </h2>
+          <button class="counseling-btn"><a href="CouncelingBooking.html">Click Here</a></button>
+        </div>
+        <img src="../assets/images/Picture1.png" alt="Online Counseling" class="counsel-img" />
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Contact</a>
+      <a href="#">Services</a>
+      <a href="about_us.html">About Us</a>
+    </div>
+    <p>© All rights reserved by GradNav, 2025</p>
+  </footer>
+
+  <script>
+    // Get the result data passed from the previous page (as URL parameters)
+    const urlParams = new URLSearchParams(window.location.search);
+    const resultData = JSON.parse(decodeURIComponent(urlParams.get("data")));
+
+    // Assuming the result data structure looks like this:
+    // resultData = { recommendations: [{name: 'CSE', description: 'Some description'}, ...] }
+
+    // Function to render recommendations
+    function displayRecommendations(data) {
+      const recommendationsContainer = document.getElementById('recommendations-container');
+      recommendationsContainer.innerHTML = ''; // Clear any previous content
+
+      data.recommendations.forEach(rec => {
+        const recommendationDiv = document.createElement('div');
+        recommendationDiv.classList.add('recommendation');
+        
+        const strongElement = document.createElement('strong');
+        strongElement.textContent = rec.name;
+        recommendationDiv.appendChild(strongElement);
+
+        const descriptionElement = document.createElement('p');
+        descriptionElement.textContent = rec.description;
+        recommendationDiv.appendChild(descriptionElement);
+
+        recommendationsContainer.appendChild(recommendationDiv);
+      });
+    }
+
+    // Call the function to display recommendations
+    if (resultData && resultData.recommendations) {
+      displayRecommendations(resultData);
+    } else {
+      const errorMessage = document.createElement('p');
+      errorMessage.textContent = 'Sorry, no recommendations found.';
+      document.getElementById('recommendations-container').appendChild(errorMessage);
+    }
+  </script>
+
+</body>
+
+</html>
