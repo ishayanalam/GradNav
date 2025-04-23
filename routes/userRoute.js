@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controllers/userController");
+const recommendController = require("../controllers/recommendController");
 const {
   signUpValidation,
   loginValidation,
@@ -49,5 +50,7 @@ router.get(
   admin.isAdmin,
   userController.getTotalUsers
 );
+
+router.post("/recommendations", recommendController.getRecommendations);
 
 module.exports = router;

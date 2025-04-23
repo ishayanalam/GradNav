@@ -1,9 +1,9 @@
-// routes/recommendation.js
+// controllers/recommendController.js
 
-const express = require("express");
-const router = express.Router();
+// const MAJORS = {
+//   // same MAJORS object from your boss's code...
+// };
 
-// ======= Data Configuration =======
 const MAJORS = {
   CSE: {
     coreSubjects: ["ICT", "Higher Math", "Physics"],
@@ -88,23 +88,7 @@ const MAJORS = {
   },
 };
 
-const STRENGTHS = [
-  "Problem-solving",
-  "Analytical Skills",
-  "Memorization",
-  "Creativity",
-  "Communication",
-  "Technical Aptitude",
-  "Attention to Detail",
-  "Critical Thinking",
-  "Logical Reasoning",
-  "Critical Analysis",
-  "Leadership",
-  "Teamwork",
-];
-
-// ======= Helper Functions =======
-function calculateScore(major, subjects, strengths) {
+const calculateScore = (major, subjects, strengths) => {
   let total = 0;
   let maxPossible = 0;
   let missingCores = 0;
@@ -141,10 +125,9 @@ function calculateScore(major, subjects, strengths) {
   if (missingCores > 0) total *= Math.max(0, 1 - missingCores * 0.2);
 
   return (total / maxPossible) * 100;
-}
+};
 
-// ======= Route Handler =======
-router.post("/recommendations", (req, res) => {
+const getRecommendations = (req, res) => {
   const { stem, subjects, strengths } = req.body;
 
   if (!stem || !subjects || !strengths) {
@@ -165,6 +148,8 @@ router.post("/recommendations", (req, res) => {
 
   recommendations.sort((a, b) => b.score - a.score);
   res.json({ recommendations });
-});
+};
 
-module.exports = router;
+module.exports = {
+  getRecommendations,
+};
