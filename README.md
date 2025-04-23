@@ -3,7 +3,7 @@
 Presentation Slide
 [Presentation Slide](https://www.canva.com/design/DAGlX0A3EVs/mimEXg1D-NSsqjfdprORYQ/edit?utm_content=DAGlX0A3EVs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-# 🎓 GradNav – Smart Career and Program Recommendation Platform
+# 🎓 GradNav – Program Recommendation Platform
 
 GradNav is a web-based platform designed to help students explore the right academic programs and career paths based on their strengths and interests. Using an intelligent recommendation system, GradNav provides program suggestions, career counseling, and future updates like university recommendations and 24/7 chat support.
 
