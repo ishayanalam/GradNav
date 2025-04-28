@@ -22,11 +22,11 @@
       <a href="login_admin.html" class="button" id="logout_button">Logout</a>
     </header>
 
-    <!-- Client Information Section -->
+    
     <section class="client-info">
       <h2>Client Information</h2>
       <div id="client-cards" class="client-cards-container">
-        <!-- Client cards will be populated here using JavaScript -->
+      
       </div>
     </section>
 
@@ -42,7 +42,7 @@
     </footer>
 
     <script>
-      // Function to fetch and display user data (clients) in a card layout
+     
       async function loadUserData() {
         try {
           const token = localStorage.getItem("token");
@@ -100,7 +100,6 @@
           console.error("Error fetching user data:", error);
         }
       }
-
       // Call the loadUserData function when the page loads
       window.addEventListener("DOMContentLoaded", loadUserData);
     </script>

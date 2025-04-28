@@ -22,7 +22,7 @@
         <div class="login_info">
           <h2>Login Information</h2>
 
-          <!-- Form to handle login -->
+        
           <form id="login-form">
             <label for="email">Email</label>
             <input
@@ -107,15 +107,15 @@
             console.log(data.token);
             window.location.href = "index.html"; //
           } else {
-           // console.log(data);
+         
             const errorDiv = document.getElementById("error-message");
             errorDiv.textContent =
               data.message || "Incorrect Email or Password";
             errorDiv.style.display = "block";
-            //alert(data.message || "Incorrect Email or Password");
+           
           }
         } catch (error) {
-          //console.error(error);
+         
           alert("Something went wrong");
         }
       });

@@ -28,7 +28,7 @@
     </header>
 
     <main>
-      <!-- Start of the single form that wraps all questions -->
+ 
       <form id="ratingForm">
         <div class="container">
           <h2>Rate your expertise into the subjects</h2>
@@ -515,7 +515,7 @@
           <button type="submit" class="button">Submit</button>
         </div>
       </form>
-      <!-- End of single form -->
+     
     </main>
 
     <footer>
@@ -598,7 +598,7 @@
           };
 
           const data = {
-            stem: "Science", // You can adjust the STEM value based on the user's input or selection
+            stem: "Science", 
             subjects: subjects,
             strengths: strengths,
           };
@@ -613,7 +613,7 @@
           })
             .then((response) => response.json())
             .then((result) => {
-              // Assuming the backend returns a result you want to show
+             
               // Redirect or show the result on another page
               window.location.href =
                 "resultPage.html?data=" +

@@ -10,9 +10,9 @@
       rel="stylesheet"
     />
   </head>
-  <!-- admin will be able to see the counseling request -->
+ 
   <body>
-    <!-- Header Section -->
+  
     <header>
       <div class="logo">🎓 <span class="brand">GradNav</span></div>
       <nav>
@@ -23,11 +23,11 @@
       <a href="login_admin.html" class="button" id="logout_button">Logout</a>
     </header>
 
-    <!-- Main Section for Counseling Requests -->
+    
     <section class="admin-counseling">
       <h2>Counseling Requests</h2>
 
-      <!-- Counseling requests table -->
+    
       <table id="counseling-table">
         <thead>
           <tr>
@@ -40,12 +40,12 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Rows will be populated here dynamically using JavaScript -->
+          
         </tbody>
       </table>
     </section>
 
-    <!-- Footer Section -->
+    
     <footer>
       <div class="footer-links">
         <a href="https://github.com/ishayanalam/GradNav" target="_blank"
@@ -58,11 +58,11 @@
     </footer>
 
     <script>
-      // Function to format date in a more readable format
+    
       function formatDate(isoDate) {
         const date = new Date(isoDate);
 
-        // Options for formatting the date
+        
         const options = {
           year: "numeric",
           month: "long",
@@ -76,7 +76,7 @@
         return date.toLocaleString("en-US", options);
       }
 
-      // Function to fetch and display counseling requests
+     
       async function loadCounselingRequests() {
         try {
           const token = localStorage.getItem("token");
@@ -86,25 +86,24 @@
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`, // Include the token for authorization
+                Authorization: `Bearer ${token}`, 
               },
             }
           );
 
           const data = await res.json();
-          console.log("Received data from server:", data); // Log the entire response to check structure
+          console.log("Received data from server:", data); 
 
           if (res.ok) {
             if (Array.isArray(data.data)) {
-              console.log("Counseling requests:", data.data); // Log the array of counseling requests
+              console.log("Counseling requests:", data.data); 
               const tableBody = document.querySelector(
                 "#counseling-table tbody"
               );
-              tableBody.innerHTML = ""; // Clear existing table content
+              tableBody.innerHTML = ""; 
 
               data.data.forEach((request) => {
-                console.log("Rendering request:", request); // Log each request to see what is being processed
-                // Loop through the array of requests
+                console.log("Rendering request:", request); 
                 const row = document.createElement("tr");
 
                 // Create table cells for each request
